@@ -22,3 +22,4 @@ names(transactions) <- students
 str(portfolio)
 str(transactions)
 # We should now have 2 lists with assets for each student in the portfolio and transacitons for each student in transactions. 
+
