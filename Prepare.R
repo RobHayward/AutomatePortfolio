@@ -14,12 +14,15 @@ head(data)
 portfolio <- as.list(students)
 transactions <- as.list(students)
 d1 <- data.frame("Cash"= 1000000, "Equity" = 0, "Bonds" = 0) 
-d2 <- data.frame("Date" = as.Date(Sys.Date()), "Asset" = "", "Size" = 0, "Price" = 0)
+d2 <- data.frame("Date" = as.Date(Sys.Date()), "BS" = "Buy", "Asset" = "Cash", 
+                 "Size" = 1000000, "Price" = 1, "Total" = 1000000)
 portfolio <- lapply(portfolio, function(x) d1)
 transactions <- lapply(transactions, function(x) d2)
 names(portfolio) <- students
 names(transactions) <- students
 str(portfolio)
 str(transactions)
-# We should now have 2 lists with assets for each student in the portfolio and transacitons for each student in transactions. 
+# We should now have 2 lists with assets for each student in the 
+#portfolio and transacitons for each student in transactions. 
+# Could now remove d1, d2 and students to tidy up. 
 
