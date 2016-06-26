@@ -8,9 +8,9 @@ if(student %in% students == FALSE) {
   if(asset %in% assets == FALSE) {
     warning("Not valid asset")
 }
-myList[[student]][asset] <- amount
-return(myList)
+portfolio[[student]][asset] <- amount
+return(portfolio)
 }
-portfolioChange("nm279", "Cash", 999999)
-portfolioChange("cs734", "Equity", 50)
-portfolioChange("cs734", "Gold", 100)
+portfolioChange("yl136", "Cash", 999999)
+portfolioChange("yl136","Equity", 50)
+portfolioChange("yl136", "Gold", 100)
