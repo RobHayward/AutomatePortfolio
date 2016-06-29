@@ -20,10 +20,10 @@ d1 <- data.frame("Cash"= 1000000, "Equity" = 0, "Bonds" = 0)
 Date <- as.Date(character())
 BS <- factor(levels = c("Buy", "Sell"))
 Asset <- factor(levels = c("Cash", "Equity", "Bond"))
-Size <- numeric()
+Volume <- numeric()
 Price <- numeric()
 Total <- numeric()
-d2 <- data.frame(Date, BS, Asset, Size, Price, Total)
+d2 <- data.frame(Date, BS, Asset, Volume, Price, Total)
 portfolio <- lapply(portfolio, function(x) d1)
 transactions <- lapply(transactions, function(x) d2)
 names(portfolio) <- students
@@ -34,5 +34,5 @@ str(transactions)
 #portfolio and transacitons for each student in transactions. 
 # Could now remove d1, d2 and students to tidy up. 
 # Now remove the unneeded parts
-rm(d1, d2, Date, BS, Asset, Size, Price, Total)
+rm(d1, d2, Date, BS, Asset, Volume, Price, Total, data)
 # DO I need assets? 
