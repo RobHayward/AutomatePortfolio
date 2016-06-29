@@ -7,12 +7,13 @@ if(student %in% students == FALSE) {
 } 
   if(asset %in% assets == FALSE) {
     warning("Not valid asset")
-}
-portfolio[[student]][asset] <- amount
+  }
+# the <<- will assign the variable to the parent scope
+portfolio[[student]][asset] <<- amount
 return(portfolio)
 }
-portfolio <- portfolioChange("yl136", "Cash", 999999)
-portfolio <- portfolioChange("yl136","Equity", 50)
-portfolio <- portfolioChange("yl136", "Gold", 100)
+portfolioChange("yl136", "Cash", 999999)
+portfolioChange("yl136","Equity", 50)
+portfolioChange("yl136", "Gold", 100)
 portfolio[["yl136"]]
 
