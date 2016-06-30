@@ -1,4 +1,14 @@
-# Create portfolio
+# This will prepare the database.  At the moment it gets just SPY but I want to get Treasury as well and have columne names.  
+# This will require downloading TlT data to the database, switching the path to that database and then amalgamating into da. 
+# QQQ is not the right database but I will swap for TLT when it has been added to the database. 
+da1 <- read.csv("../Trading/Database/SPY.csv", stringsAsFactors = FALSE)
+da2 <- read.csv("../Trading/Database/QQQ.csv", stringsAsFactors = FALSE)
+da <- merge(x = da1, y = da2, by = "Index") 
+da$Date <- as.Date(da[,1], format = "%Y-%m-%d")
+da <- da[, c(14, 7, 13)]
+colnames(da) <- c("Date", "Equity", "Bonds")
+head(da)
+# Create portfolio using the data from the gradebook.  This will use the student id so can automate email. 
 data <- read.csv("Official/EC381.csv", stringsAsFactors = FALSE)
 students <- data$Username
 #ma <- matrix(nrow = length(students), ncol = 3)

@@ -1,6 +1,6 @@
 # Make changes to the portfolio.  
 # where "amount" = size multiplied by price
-portfolioChange <- function(student, bs, asset, volume){
+portfolioChange <- function(student, bs, asset, volume, price){
 if(student %in% students == FALSE) {
     warning("Not valid student")
 } 
@@ -10,15 +10,16 @@ if(student %in% students == FALSE) {
 # the <<- will assign the variable to the parent scope
 
 if(bs == "Buy"){
-portfolio[[student]][asset] <<- volume
-portfolio[[student]]["Cash"] <<- -1 * volume
+portfolio[[student]][asset] <<- portfolio[[student]][asset] + volume * price
+portfolio[[student]]["Cash"] <<- portfolio[[student]]["Cash"] - volume * price
 } else {
- portfolio[[student]][asset] <<- -1 * volume
- portfolio[[student]]["Cash"] <<- volume
+ portfolio[[student]][asset] <<- portfolio[[student]][asset] - volume * price 
+ portfolio[[student]]["Cash"] <<- portfolio[[student]]["Cash"] + volume * price
 }
 }
-portfolioChange("yl136", "Buy", "Cash", 999999)
-portfolioChange("yl136","Sell", "Equity", 50)
+# Selling equity w3orks but buying bond does not.  Undefined column.  Not sure. 
+portfolioChange("yl136", "Buy", "Bonds", 50, 2.5)
+portfolioChange("yl136","Sell", "Equity", 50, 2.5)
 portfolioChange("yl136", "Gold", 100)
 portfolio[["yl136"]]
 

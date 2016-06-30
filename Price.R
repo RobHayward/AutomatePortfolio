@@ -1,19 +1,20 @@
-# Price will go to the database and get the price.  
-# In final version, This may get all the assets. 
-da <- read.csv("Portfolio/SPY.csv", stringsAsFactors = FALSE)
-da$Date <- as.Date(da[,1], format = "%Y-%m-%d")
-da <- da[, c(8, 7)]
-head(da)
-price <- da[da$Date == "2000-06-07",2]
-price
-# This trade function will return a trade based on the price for the day given and the number of shares. 
-trade <- function(Date, volume){
+# Price will go to the database and get the price of assets and return a matrix.  
+# In final version, This may get all the assets.
+priceMatrix <- function(Date, assets){
+  price <- matrix(rep(1, length(assets) + 1, ncol = 1))
   if(as.Date(Date) %in% da$Date == FALSE){
     warning("Incorrect date")
   }
-  price <- da[da$Date == Date, 2]
-  trade <- price * volume
-  return(trade)
+  if(assets %in% assets == FALSE){
+    stop("Asset does not exist")
+  }
+  for(i in length(assets) + 1){
+    price[i,] <- da[da$Date == Date, i]
+      }
+ return(price)
 }
-trade("2000-05-08", 20)
+assets <- c("Equity", "Debt")
+#add bonds to this and make the database names "Equity" and "Bonds".
+priceMatrix(Date = "2000-05-08", assets = assets)
+#This does not work. 
 
