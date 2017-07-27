@@ -1,9 +1,4 @@
-sstudents = c('Mark', "John")
-myList <- list("Mark", "John")
-d1 <- data.frame("Cash"= 1000000, "Equity" = 0, "Bonds" = 0) 
-myList <- lapply(myList, function(x) d1)
-names(myList) <- students
-tudents = c('Mark', "John")
+students = c('Mark', "John")
 myList <- list("Mark", "John")
 d1 <- data.frame("Cash"= 1000000, "Equity" = 0, "Bonds" = 0) 
 myList <- lapply(myList, function(x) d1)

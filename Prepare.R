@@ -6,14 +6,14 @@ da2 <- read.csv("../Trading/Database/QQQ.csv", stringsAsFactors = FALSE)
 da <- merge(x = da1, y = da2, by = "Index") 
 da$Date <- as.Date(da[,1], format = "%Y-%m-%d")
 da <- da[, c(14, 7, 13)]
-colnames(da) <- c("Date", "Equity", "Bonds")
+colnames(da) <- c("Date", "Equity", "Debt")
 head(da)
 # Create portfolio using the data from the gradebook.  This will use the student id so can automate email. 
 data <- read.csv("Official/EC381.csv", stringsAsFactors = FALSE)
 students <- data$Username
 #ma <- matrix(nrow = length(students), ncol = 3)
 #da <- data.frame(ma, row.names = students)
-assets <- c("Cash", "Equity", "Bonds")
+assets <- c("Cash", "Equity", "Debt")
 #colnames(da) <- assets
 head(data)
 #----------------------------------
@@ -25,11 +25,11 @@ head(data)
 portfolio <- as.list(students)
 transactions <- as.list(students)
 # the first method is to put the elements together
-d1 <- data.frame("Cash"= 1000000, "Equity" = 0, "Bonds" = 0) 
+d1 <- data.frame("Cash"= 1000000, "Equity" = 0, "Debt" = 0) 
 # the second is to create the variables with zero values 
 Date <- as.Date(character())
 BS <- factor(levels = c("Buy", "Sell"))
-Asset <- factor(levels = c("Cash", "Equity", "Bond"))
+Asset <- factor(levels = c("Cash", "Equity", "Debt"))
 Volume <- numeric()
 Price <- numeric()
 Total <- numeric()
