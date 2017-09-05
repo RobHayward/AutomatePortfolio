@@ -17,8 +17,10 @@ portfolio[[student]]["Cash"] <<- portfolio[[student]]["Cash"] - volume * price
  portfolio[[student]]["Cash"] <<- portfolio[[student]]["Cash"] + volume * price
 }
 }
-# Selling equity w3orks but buying bond does not.  Undefined column.  Not sure. 
-portfolioChange("yl136", "Buy", "Bonds", 50, 2.5)
+# I was told that 'Selling equity works but buying bond does not'.  
+# Undefined column.  I think that this is okay now. 
+# This is the test below. 
+portfolioChange("yl136", "Buy", "Debt", 50, 2.5)
 portfolioChange("yl136","Sell", "Equity", 50, 2.5)
 portfolioChange("yl136", "Gold", 100)
 portfolio[["yl136"]]

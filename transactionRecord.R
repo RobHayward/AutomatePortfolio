@@ -33,6 +33,7 @@ transactionRecord <- function(student, bs, asset, volume, price){
     transactions[[student]][end + 1, 5] <<- price
     transactions[[student]][end + 1, 6] <<- price * volume
   }
-    }
+}
+# this is the test below. This will eventually be taken out.
 transactionRecord("td126", "Sell", "Equity", 60, 20)
 transactions[["td126"]]
