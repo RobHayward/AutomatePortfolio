@@ -1,4 +1,4 @@
-    # This will prepare the database.  At the moment it gets just SPY but I want to get Treasury as well and have columne names.  
+# This will prepare the database.  At the moment it gets just SPY but I want to get Treasury as well and have columne names.  
 # This will require downloading TlT data to the database, switching the path to that database and then amalgamating into da. 
 # QQQ is not the right database but I will swap for TLT when it has been added to the database. 
 da1 <- read.csv("../Trading/Database/SPY.csv", stringsAsFactors = FALSE)
@@ -26,7 +26,7 @@ assets <- c("Cash", "Equity", "Debt")
 portfolio <- as.list(students)
 transactions <- as.list(students)
 # the first method is to put the elements together
-d1 <- data.frame("Cash"= 1000000, "Equity" = 0, "Debt" = 0) 
+d1 <- data.frame("Date" = Sys.Date(), "Cash"= 1000000, "Equity" = 0, "Debt" = 0) 
 # the second is to create the variables with zero values 
 Date <- as.Date(character())
 BS <- factor(levels = c("Buy", "Sell"))

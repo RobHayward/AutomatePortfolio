@@ -1,7 +1,7 @@
 # Trade R:  this will get  the price, make a transaction (two-way) and change the 
 # portfolio. the asset will have to be changed eventually 
 completeTrade <- function(student, bs, Date, asset, volume, price){
-  portfolioChange(student = student, bs = bs, asset = asset, volume = volume, price = price)
+  portfolioRecord(student = student, bs = bs, asset = asset, volume = volume, price = price)
   #Next line does not work. 
   transactionRecord(student = student, bs = bs, asset = asset, volume = volume, price = price)
 }
