@@ -18,9 +18,9 @@
 # return(price)
   return(pricetab)
 }
-assets <- c("Equity", "Debt")
-a <- priceMatrix(Date = "2000-06-08", assets = assets)
-a
+#assets <- c("Equity", "Debt")
+#a <- priceMatrix(Date = "2000-06-08", assets = assets)
+#a
 # I have been changing this to be a dataframe so that it will print the date as well
 # as the price.  I so not understand why it does not work.  When it works, 
 # I can use this as input into the price past of the formula. 

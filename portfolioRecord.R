@@ -25,9 +25,9 @@ portfolio[[student]][end, "Date"] <<- Date
 # I was told that 'Selling equity works but buying bond does not'.  
 # Undefined column.  I think that this is okay now. 
 # This is the test below. 
-portfolioRecord(Date = "2017-07-05", "yl136", "Buy", "Debt", 50, 2.5)
-portfolioRecord("yl136","Sell", "Equity", 50, 2.5)
-portfolioRecord("yl136", "Gold", 100)
-portfolio[["yl136"]][2, assets] <- portfolio[["yl136"]][1, "Cash"] + 100
-portfolio[["yl136"]]
-
+#portfolioRecord(Date = "2017-07-05", "td126", "Buy", "Debt", 50, 2.5)
+#portfolioRecord("yl136","Sell", "Equity", 50, 2.5)
+#portfolioRecord("yl136", "Gold", 100)
+#portfolio[["yl136"]][2, assets] <- portfolio[["yl136"]][1, "Cash"] + 100
+#portfolio[["yl136"]]
+#

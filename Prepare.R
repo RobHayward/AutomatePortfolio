@@ -39,8 +39,8 @@ portfolio <- lapply(portfolio, function(x) d1)
 transactions <- lapply(transactions, function(x) d2)
 names(portfolio) <- students
 names(transactions) <- students
-str(portfolio)
-str(transactions)
+#str(portfolio)
+#str(transactions)
   # We should now have 2 lists with assets for each student in the 
 #portfolio and transacitons for each student in transactions. 
 # Could now remove d1, d2 and students to tidy up. 

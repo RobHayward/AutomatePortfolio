@@ -1,11 +1,11 @@
 # Now record the transactions.  The first column will have the date, 
 # the second the transaction and the third the amount.  Next check that it is possible. 
 # Eventually, this can be combined wtih Price.R to comined volume and price
-transactionRecord <- function(student, bs, asset, volume, price){
+transactionRecord <- function(Date = Sys.Date(), student, bs, asset, volume, price){
 #find the length of the transaction list
   end <- dim(transactions[[student]])[1] + 1
 # This is not the best, could I apply? 
-  transactions[[student]][end, 1] <<- Sys.Date()
+  transactions[[student]][end, 1] <<- Date
   transactions[[student]][end, 2] <<- bs
   transactions[[student]][end, 3] <<- asset
   transactions[[student]][end, 4] <<- volume
@@ -19,7 +19,7 @@ transactionRecord <- function(student, bs, asset, volume, price){
 
   # Make an offsetting trasacton for cash. 
   
-  transactions[[student]][end + 1, 1] <<- Sys.Date()
+  transactions[[student]][end + 1, 1] <<- Date
   
   transactions[[student]][end + 1, 3] <<- "Cash"
   transactions[[student]][end + 1, 4] <<-  volume
@@ -35,5 +35,5 @@ transactionRecord <- function(student, bs, asset, volume, price){
   }
 }
 # this is the test below. This will eventually be taken out.
-transactionRecord("td126", "Sell", "Equity", 60, 20)
-transactions[["td126"]]
+transactionRecord("2017-08-08", "td126", "Sell", "Equity", 60, 20)
+#transactions[["td126"]]
