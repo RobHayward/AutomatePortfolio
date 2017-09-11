@@ -12,8 +12,8 @@ priceMatrix(Date = valueDates, assets = assets)
 # this does return the matrix of dates and prices.  Now apply this to each portfolio. 
 # there is an issue with the warning.  It only checks the first date. 
 #-----------------------------------------
-# pricetab <- data.frame(Date = c("2017-09-07", "2017-09-05", "2017-09-01"), 
-# Equity = c(2, 3, 5), Debt = c(10, 20, 30))
+#pricetab <- data.frame(Date = c(as.Date("2017-09-07"), as.Date("2017-09-05"),
+#            as.Date("2017-09-01"), Equity = c(2, 3, 5), Debt = c(10, 20, 30))
 a <- merge(pricetab, portfolio[['td126']], by = "Date")
 a$value <- a[,2] * a[, 5] + a[, 3] * a[, 6] + a[, 4]
 # create the lagged variable
