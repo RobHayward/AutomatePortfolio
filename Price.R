@@ -3,7 +3,7 @@
   priceMatrix <- function(Date = Sys.Date(), assets){
   pricetab <- data.frame(Date = as.Date(Date), "Equity" = 0, "Debt" = 0)
   #price <- matrix(rep(1, length(assets) + 1, ncol = 1))
-  if(as.Date(Date) %in% da$Date == FALSE){
+  if(any(as.Date(Date) %in% da$Date) == FALSE){
     warning("Incorrect date")
   }
   if(any(assets %in% assets) == FALSE){
@@ -18,8 +18,8 @@
 # return(price)
   return(pricetab)
 }
-#assets <- c("Equity", "Debt")
-#a <- priceMatrix(Date = "2000-06-08", assets = assets)
+assets <- c("Equity", "Debt")
+a <- priceMatrix(Date = "2000-06-08", assets = assets)
 #a
 # I have been changing this to be a dataframe so that it will print the date as well
 # as the price.  I so not understand why it does not work.  When it works, 
