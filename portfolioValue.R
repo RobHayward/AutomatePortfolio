@@ -6,7 +6,7 @@ pick.wkday <- function(selday,start,end) {
   seq.Date(first.day,end,by="week")
 }
 # valueDates are the dates at which the portfolio will be valued. 
-valueDates <- pick.wkday(5, as.Date("2016-01-08"), as.Date("2016-03-30"))
+valueDates <- pick.wkday(5, as.Date("2016-01-01"), as.Date("2016-03-31"))
 # Now use the priceMatrix on the valueDates                   
 priceMatrix(Date = valueDates, assets = assets)
 # this does return the matrix of dates and prices.  Now apply this to each portfolio. 
