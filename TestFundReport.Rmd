@@ -1,0 +1,22 @@
+---
+title: "TestFundReport"
+author: "RobHayward"
+date: "16 September 2017"
+output: 
+  html_document: 
+    theme: journal
+---
+##this is the fund report for xxx
+This week was a difficult time for financial markets.  The on-going tension with North Korea and the concern about US interest rates were offset by a more accomodative positon in Washington. 
+
+###Your portfolio 
+
+```{r, echo=FALSE, results='asis', warning=FALSE}
+require(xtable)
+a <- portfolio[['td126']]
+a[,1] <- as.character(a[,1])
+print(xtable(a), type='html', include.rownames = FALSE, 
+      colnames = c("Date", "Cash Holding", "Equity Holding", 
+                   "Debt Holding"))
+```
+

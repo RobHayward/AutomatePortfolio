@@ -14,11 +14,11 @@ if(student %in% students == FALSE) {
 portfolio[[student]][end, ] <<- portfolio[[student]][end -1, ] 
 
 if(bs == "Buy"){
-portfolio[[student]][end, asset] <<- portfolio[[student]][end -1, asset] + volume * price
+portfolio[[student]][end, asset] <<- portfolio[[student]][end -1, asset] + volume 
 portfolio[[student]][end, "Cash"] <<- portfolio[[student]][end -1, "Cash"] - volume * price
 portfolio[[student]][end, "Date"] <<- Date
 } else {
- portfolio[[student]][end, asset] <<- portfolio[[student]][end -1, asset] - volume * price 
+ portfolio[[student]][end, asset] <<- portfolio[[student]][end -1, asset] - volume 
  portfolio[[student]][end, "Cash"] <<- portfolio[[student]][end -1, "Cash"] + volume * price
 }
 }
@@ -26,8 +26,5 @@ portfolio[[student]][end, "Date"] <<- Date
 # Undefined column.  I think that this is okay now. 
 # This is the test below. 
 #portfolioRecord(Date = "2017-07-05", "td126", "Buy", "Debt", 50, 2.5)
-#portfolioRecord("yl136","Sell", "Equity", 50, 2.5)
-#portfolioRecord("yl136", "Gold", 100)
-#portfolio[["yl136"]][2, assets] <- portfolio[["yl136"]][1, "Cash"] + 100
-#portfolio[["yl136"]]
+#portfolio[["td126"]]
 #

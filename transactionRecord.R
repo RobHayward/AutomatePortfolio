@@ -35,5 +35,5 @@ transactionRecord <- function(Date = Sys.Date(), student, bs, asset, volume, pri
   }
 }
 # this is the test below. This will eventually be taken out.
-transactionRecord("2017-08-08", "td126", "Sell", "Equity", 60, 20)
+#transactionRecord("2017-08-08", "td126", "Sell", "Equity", 60, 20)
 #transactions[["td126"]]
