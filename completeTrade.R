@@ -8,8 +8,8 @@ completeTrade <- function(student, bs, Date, asset, volume, price){
                     volume = volume, price = price)
 }
 # This is a test.  It seems to work. 
-#completeTrade(student = "td126", bs = "Buy", Date = "2016-06-07", asset = "Equity", 
-#              volume = 200, price = 23.50)
+completeTrade(student = "td126", bs = "Buy", Date = "2016-06-07", asset = "Equity", 
+              volume = 200, price = 23.50)
 #
 ## this seems to work. Not sure what portfoli and transactioRecord are about. 
 #portfolio <- portfolioChange("td126", bs = "Buy", "Equity", 50, price = 50)
