@@ -4,7 +4,9 @@ author: "RobHayward"
 date: "16 September 2017"
 output: 
   html_document: 
+    fig_width: 10
     theme: journal
+    df_print: paged
 ---
 ##this is the fund report for xxx
 This week was a difficult time for financial markets.  The on-going tension with North Korea and the concern about US interest rates were offset by a more accomodative positon in Washington. 
@@ -13,10 +15,37 @@ This week was a difficult time for financial markets.  The on-going tension with
 
 ```{r, echo=FALSE, results='asis', warning=FALSE}
 require(xtable)
-a <- portfolio[['td126']]
-a[,1] <- as.character(a[,1])
-print(xtable(a), type='html', include.rownames = FALSE, 
-      colnames = c("Date", "Cash Holding", "Equity Holding", 
-                   "Debt Holding"))
+b <- portfolio[['td126']]
+b[,1] <- as.character(a[,1])
+colnames(b) <- c("Date", "Cash Holding", "Equity Holding", 
+                   "Debt Holding") 
+print(xtable(b), type='html', include.rownames = FALSE) 
 ```
+##Transactions
 
+The transactions that have been carried out are recorded as follows. 
+
+```{r, echo=FALSE, results='asis', warning=FALSE}
+c <- transactions[['td126']]
+c[,1] <- as.character(c[, 1])
+colnames(c) <- c("Date", "Buy or Sell", "Asset", "Volume", "Price", "Total")
+print(xtable(c), type='html', include.rownames=FALSE)
+```
+      
+The main events in the week ahead are: 
+
+* The ECB meeting on Thursday
+
+* US Employment data on Friday. 
+
+* The debate in the EU over Brexit
+
+* The on-going situation in Asia with fuether talks on the NK missile. 
+
+See (The linl)[https://www.ft.com/week-ahead]
+
+=========================
+
+```{r, echo=FALSE}
+barplot(a[,7], main = "Portfolio Value", names.arg = a[,1])
+```
