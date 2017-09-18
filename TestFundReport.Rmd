@@ -27,6 +27,7 @@ The transactions that have been carried out are recorded as follows.
 
 ```{r, echo=FALSE, results='asis', warning=FALSE}
 c <- transactions[['td126']]
+# altrows will remove the cash transactions from the record. 
 altrows <- seq(1, length(c[,1]), 2)
 c[,1] <- as.character(c[, 1])
 colnames(c) <- c("Date", "Buy or Sell", "Asset", "Volume", "Price", "Total")
