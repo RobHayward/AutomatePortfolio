@@ -16,7 +16,7 @@ This week was a difficult time for financial markets.  The on-going tension with
 ```{r, echo=FALSE, results='asis', warning=FALSE}
 require(xtable)
 b <- portfolio[['td126']]
-b[,1] <- as.character(a[,1])
+b[,1] <- as.character(b[,1])
 colnames(b) <- c("Date", "Cash Holding", "Equity Holding", 
                    "Debt Holding") 
 print(xtable(b), type='html', include.rownames = FALSE) 
@@ -27,9 +27,10 @@ The transactions that have been carried out are recorded as follows.
 
 ```{r, echo=FALSE, results='asis', warning=FALSE}
 c <- transactions[['td126']]
+altrows <- seq(1, length(c[,1]), 2)
 c[,1] <- as.character(c[, 1])
 colnames(c) <- c("Date", "Buy or Sell", "Asset", "Volume", "Price", "Total")
-print(xtable(c), type='html', include.rownames=FALSE)
+print(xtable(c[altrows, ]), type='html', include.rownames=FALSE)
 ```
       
 The main events in the week ahead are: 

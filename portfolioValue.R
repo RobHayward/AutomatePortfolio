@@ -8,7 +8,7 @@ pick.wkday <- function(selday,start,end) {
 # valueDates are the dates at which the portfolio will be valued. 
 valueDates <- pick.wkday(5, as.Date("2016-01-08"), as.Date("2016-03-20"))
 # Now use the priceMatrix on the valueDates                   
-priceMatrix("Date" = as.Date(valueDates), assets = c("Equity", "Debt"))
+pricetab <- priceMatrix("Date" = as.Date(valueDates), assets = c("Equity", "Debt"))
 # this does return the matrix of dates and prices.  Now apply this to each portfolio. 
 # there is an issue with the warning.  It only checks the first date. 
 #-----------------------------------------

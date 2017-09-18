@@ -10,7 +10,7 @@ colnames(da) <- c("Date", "Equity", "Debt")
 #head(da)
 #====================================================
 # Create portfolio using the data from the gradebook.  This will use the student id so can automate email. 
-data <- read.csv("Official/EC381.csv", stringsAsFactors = FALSE)
+data <- read.csv("../EC381/Official/EC381.csv", stringsAsFactors = FALSE)
 students <- data$Username
 #ma <- matrix(nrow = length(students), ncol = 3)
 #da <- data.frame(ma, row.names = students)
