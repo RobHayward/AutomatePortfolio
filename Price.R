@@ -10,8 +10,8 @@
   pricetab <- da[da$Date %in% Date, c("Date", assets)]
   return(pricetab)
 }
-assets <- c("Equity", "Debt")
-a <- priceMatrix(Date = as.Date("2002-07-30"))
-a
+#assets <- c("Equity", "Debt")
+#a <- priceMatrix(Date = as.Date("2002-07-30"))
+#a
 # This ow seems to work.  Need to make sure that 
 # there is a 'date' label to the first column
