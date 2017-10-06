@@ -5,15 +5,15 @@ library(shiny)
 #library(readr)
 # Load data============================
 library(shiny)
-da1 <- read.csv("../Trading/Database/newSPY.csv", stringsAsFactors = FALSE)
-da2 <- read.csv("../Trading/Database/newTLT.csv", stringsAsFactors = FALSE)
+da1 <- read.csv("../../Trading/Database/newSPY.csv", stringsAsFactors = FALSE)
+da2 <- read.csv("../../Trading/Database/newTLT.csv", stringsAsFactors = FALSE)
 da <- merge(x = da1, y = da2, by = "Date") 
 da$Date <- as.Date(da[,1], format = "%Y-%m-%d")
 da <- da[, c(1, 6, 12)]
 colnames(da) <- c("Date", "Equity", "Debt")
 #====================================================
 # Create portfolio using the data from the gradebook.  This will use the student id so can automate email. 
-data <- read.csv("../EC381/Official/EC381.csv", stringsAsFactors = FALSE)
+data <- read.csv("../../EC381/Official/EC381.csv", stringsAsFactors = FALSE)
 students <- data$Username
 #ma <- matrix(nrow = length(students), ncol = 3)
 #da <- data.frame(ma, row.names = students)
@@ -39,7 +39,7 @@ names(portfolio) <- students
 names(transactions) <- students
 rm(da1, da2, d1, d2, Date, BS, Asset, Volume, Price, Total, data)
 
-# define UI=============================================================
+# define UI   =============================================================
 ui <- shinyUI(fluidPage(
   
   # Application title
@@ -49,7 +49,7 @@ ui <- shinyUI(fluidPage(
   # number of observations to view
   sidebarLayout(
     sidebarPanel(
-        selectInput(inputId = "student", label = "Choose a student:", 
+        selectInput(inputId = "student", label = "Choose a student id:", 
                   choices = students,
                   selected = 'td126')
       
@@ -59,28 +59,32 @@ ui <- shinyUI(fluidPage(
     # requested number of observations
     mainPanel(
       
-      dataTableOutput("view")
+      tableOutput(outputId = "view")
     )
   )
 ))
 
-#======================
+#   Server   ===============================================================
 
 
-# Define server logic required to summarize and view the selected
-# dataset
-server <- shinyServer(function(input, output) {
+server <- function(input, output) {
   
-  # Return the requested dataset
+  
+  
+# Define the dataframe that is to be used. 
   studentportfolio <- reactive({
-    switch(input$student, portfolio[[student]])
-  })
+   req(input$student)
+   da <- data.frame(portfolio[[input$student]])
+   da[,1] <- as.Date(da[,1], format = "%Y-%m-%d")
+  return(da)
+   })
   
+# a reactive object is a cached expression.  If inputs do not change, this remains cached.
   
-  output$view <- renderDataTable({
-    studentportfolio
+  output$view <- renderTable({
+    data = studentportfolio()
   })
-})
 
+}
 # Create the shiny app server
 shinyApp(ui = ui, server = server)
