@@ -37,3 +37,5 @@ mylist
 write.table(gsub(" ", ",", capture.output(mylist)), file = "",quote = FALSE, 
             row.names = FALSE, col.names = FALSE, ",") 
 mylist <- read.table('portrecord.txt', header = TRUE)
+#=====================================
+dput(portfolio, "./portfoliobackup")
