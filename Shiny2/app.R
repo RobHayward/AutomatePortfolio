@@ -2,18 +2,45 @@
 # We only need the first two components.  
 library(shiny)
 # define the fields that we want to save from the form
-fields <- c("name", "used_shiny", "r_num_years")
+fields <- c("name", "asset", "action", "quantity")
+saveData <- function(data) {
+  data <- as.data.frame(t(data))
+  if(exists("responses")) {
+    responses <<- rbind(responses, data)
+  } else {
+    responses <<- data
+  }
+  
+}
 
+
+loadData <- function() {
+  if(exists("responses")) {
+    responses
+  }
+}
 # shiny app wtih the three fields that the user can submit data for
 shinyApp(
   ui = fluidPage(
-    DT::dataTableOutput("responses", width = 300), tags$hr(), 
+    theme = "bootstrap.css",
+    titlePanel("Investment App:  Please record investments here"),
+    mainPanel(
+    textOutput("This is the place to select security.  Make sure that you use the correct 
+              user name, record the volume and the assets.  The price will be taken from 
+              close.  Remember, if you do not have sufficient funds, you will be fined
+              one percent of the transaction cost."),
+    tags$hr(),
+    DT::dataTableOutput("responses", width = 350)  
+  ),
+    
+    sidebarPanel(
     textInput("name", "Name", ""),
-    checkboxInput("used_shiny", "I've build a shiny app in R before", FALSE),
-    sliderInput("r_num_years", "Number of years using R", 
-                 0, 25, 2, ticks = FALSE), 
+    selectInput("asset", "Asset", choice = c("SPY", "TLT"), selected = "SPY"),
+    selectInput("action", "Action", choice = c("Buy", "Sell"), selected = "Buy"),
+    numericInput("quantity", "Assets to buy or sell", value = 100, min = 0, max = 10e6),
     actionButton("submit", "Submit")
-    ), 
+    ) 
+),
   server = function(input, output, session) {
     
     # whenever a field is filled, aggregate all the form data
@@ -37,22 +64,6 @@ shinyApp(
   
 )
 
-saveData <- function(data) {
-  data <- as.data.frame(t(data))
-  if(exists("responses")) {
-    responses <<- rbind(responses, data)
-  } else {
-    responses <<- data
-  }
-  
-}
 
 
-loadData <- function() {
-  if(exists("responses")) {
-    responses
-  }
-}
-
-shinyApp(ui = ui, server = server)
 
