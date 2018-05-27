@@ -25,12 +25,12 @@ shinyApp(
     theme = "bootstrap.css",
     titlePanel("Investment App:  Please record investments here"),
     mainPanel(
-    textOutput("This is the place to select security.  Make sure that you use the correct 
+    tags$p("This is the place to select security.  Make sure that you use the correct 
               user name, record the volume and the assets.  The price will be taken from 
               close.  Remember, if you do not have sufficient funds, you will be fined
               one percent of the transaction cost."),
     tags$hr(),
-    DT::dataTableOutput("responses", width = 350)  
+    DT::dataTableOutput("responses", width = 550)  
   ),
     
     sidebarPanel(
