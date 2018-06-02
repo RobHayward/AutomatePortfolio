@@ -1,5 +1,5 @@
 # this comes frmo h#ttps://rstudio.github.io/shinydashboard/
-#install.packages("s#hinydashboard")
+#install.packages("shinydashboard")
 # the dashboard has three components: header, sidebar and body.
 
 ## app.R ##
@@ -7,20 +7,38 @@ library(shiny)
 library(shinydashboard)
 
 
+
 ui <- dashboardPage(
-  dashboardHeader(title = "Basic dashboard"), 
+  dashboardHeader(title = "Select", 
+                  dropdownMenu(type = "messages", 
+                               messageItem("Sales Dep", 
+                                           message = "Sales are steady this month"
+                                           ), 
+                               messageItem(
+                                 from = "New User", 
+                                 message = "How do I register", 
+                                 icon = icon("question"), 
+                                 time = "13:45"
+                               ), 
+                               messageItem(
+                                 from = "SUpport", 
+                                 message = "The new server is ready", 
+                                 icon = icon("life-ring"),
+                                 time = "2014-12-01"
+                               ))), 
   # sidebar content
   dashboardSidebar(
     sidebarMenu(
-      menuItem("Dashboard", tabName = "dashboard", icon = icon("dashboard")), 
-      menuItem("Widgets", tabName = "widgets", icon = icon("th"))
+      menuItem("Security Selection", tabName = "security_selection", icon = icon("dashboard")), 
+      menuItem("Portfolio", tabName = "portfolio", icon = icon("th")),
+      menuItem("News", tabName = "news", icon = icon("th"))
     )
   ),
   
   dashboardBody(
     tabItems(
       # first tab content
-      tabItem(tabName = "dashboard", 
+      tabItem(tabName = "security_selection", 
               
     
   # boxes need to be put in rows or columns
@@ -35,12 +53,18 @@ ui <- dashboardPage(
 
 ), 
 # second tab content
-tabItem(tabName = "widgets", 
-        h2("Widgets tab content")
-        )
+tabItem(tabName = "portfolio", 
+        h2("Portfolio")
+ ),
+# third tab content
+tabItem(tabName = "news", 
+        h2("News information and suggestions"),
+        p("This is what we say")
+               )
 )
 )
 )
+
 server <- function(input, output) {
   set.seed(122)
   histdata <- rnorm(500)
@@ -48,6 +72,15 @@ server <- function(input, output) {
   output$plot1 <- renderPlot({
     data <- histdata[seq_len(input$slider)]
     hist(data)
+  })
+  
+  output$messageMenu <- renderMenu({
+    #code to generate each of the message items here in a list
+    # This asssumes that hte message data is a data frame with two 
+    # elements: 'from' and 'messages' 
+    msgs <- apply(messageData, 1, function(row) (
+      messageItem(from = row[["from"]], message = row[["message"]])
+    ))
   })
 }
 
