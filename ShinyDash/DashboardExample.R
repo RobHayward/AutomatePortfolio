@@ -31,7 +31,9 @@ ui <- dashboardPage(
     sidebarMenu(
       menuItem("Security Selection", tabName = "security_selection", icon = icon("dashboard")), 
       menuItem("Portfolio", tabName = "portfolio", icon = icon("th")),
-      menuItem("News", tabName = "news", icon = icon("th"))
+      menuItem("News", tabName = "news", icon = icon("500px")),
+      menuItem("Economic Calendar", icon = icon("calendar"), 
+               href = 'https://tradingeconomics.com/calendar')
     )
   ),
   
