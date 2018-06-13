@@ -5,8 +5,25 @@
 ## app.R ##
 library(shiny)
 library(shinydashboard)
+library(DT)
+
+fields <- c("name", "asset", "action", "quantity")
+saveData <- function(data) {
+  data <- as.data.frame(t(data))
+  if(exists("responses")) {
+    responses <<- rbind(responses, data)
+  } else {
+    responses <<- data
+  }
+  
+}
 
 
+loadData <- function() {
+  if(exists("responses")) {
+    responses
+  }
+}
 
 ui <- dashboardPage(
   dashboardHeader(title = "Select", 
@@ -45,15 +62,21 @@ ui <- dashboardPage(
     
   # boxes need to be put in rows or columns
   fluidRow(
-    box(plotOutput("plot1", height = 250)), 
     
     box(
-      title = "Controls",
-      sliderInput("slider", "Number of Observations:", 1, 100, 50)
-    )
-  )
-
-), 
+      title = "Select security",
+      textInput("name", "Name", ""),
+    selectInput("asset", "Asset", choice = c("SPY", "TLT"), selected = "SPY"),
+    selectInput("action", "Action", choice = c("Buy", "Sell"), selected = "Buy"),
+    numericInput("quantity", "Assets to buy or sell", value = 100, min = 0, max = 10e6),
+    actionButton("submit", "Submit")
+    ),
+  
+   box(  
+   DT::dataTableOutput("responses", width = 350)   
+)
+  ) 
+),
 # second tab content
 tabItem(tabName = "portfolio", 
         h2("Portfolio")
@@ -68,22 +91,23 @@ tabItem(tabName = "news",
 )
 
 server <- function(input, output) {
-  set.seed(122)
-  histdata <- rnorm(500)
+  formData <- reactive({
+      data <- sapply(fields, function (x) input[[x]])
+      data
+    })
+  # whenever the submit is clicked, save the form data
+    observeEvent(input$submit, {
+      saveData(formData())
+    })
+    
+    #show the previous responses
+    # update with current responses when submit is clicked
+    output$responses <- DT::renderDataTable({
+      input$submit
+      loadData()
+    })
   
-  output$plot1 <- renderPlot({
-    data <- histdata[seq_len(input$slider)]
-    hist(data)
-  })
   
-  output$messageMenu <- renderMenu({
-    #code to generate each of the message items here in a list
-    # This asssumes that hte message data is a data frame with two 
-    # elements: 'from' and 'messages' 
-    msgs <- apply(messageData, 1, function(row) (
-      messageItem(from = row[["from"]], message = row[["message"]])
-    ))
-  })
 }
 
 shinyApp(ui, server)
