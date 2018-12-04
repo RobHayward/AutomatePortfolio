@@ -79,7 +79,9 @@ p("The base portfolio is based on a 60:40 equity to bond weighting.")
 # third tab content
 tabItem(tabName = "news", 
         h2("News information and suggestions"),
-        p("This is what we say")
+        p(tags$strong('Main'),
+"The softening of trade friction at the weekend meeting in Argentian has
+          provided the backdrop to a more stable tone in world equity markets")
                )
 )
 )
