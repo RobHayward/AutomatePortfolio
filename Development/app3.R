@@ -3,21 +3,21 @@ library(googlesheets)
 # Define the fields we want to save from the form
 fields <- c("name", "used_shiny", "r_num_years")
 
-outputDir = "responses"
+#outputDir = "responses"
 
 saveData <- function(data) {
   # grab google sheet
-  sheet <- gs_title(gap)
+  gfile <- gs_title("Gfile")
   # add the data as a new row
-  gs_add_row(sheet, input = data)
+  gs_add_row(gfile, input = data)
  
 }
  
 loadData <- function() {
   # grade the google sheet
-  sheet <- gs_title(gap)
+  gfile <- gs_title("Gfile")
   # read the data
-  gs_read_csv(sheet)
+  gs_read_csv(gfile)
   
 }
 
