@@ -5,20 +5,20 @@ library(DT)
 
 fields <- c("name", "asset", "action", "quantity")
 saveData <- function(data) {
-  data <- as.data.frame(t(data))
-  if(exists("responses")) {
-    responses <<- rbind(responses, data)
-  } else {
-    responses <<- data
-  }
-  
+  # grab google sheet
+  gfile2 <- gs_title("Gfile2")
+  # add the data as a new row
+  gs_add_row(gfile2, input = data)
+ 
 }
 
 
 loadData <- function() {
-  if(exists("responses")) {
-    responses
-  }
+  # grade the google sheet
+  gfile2 <- gs_title("Gfile2")
+  # read the data
+  gs_read_csv(gfile2)
+  
 }
 # Load functions for Shiny
 # This is the function for dates from valueDates.R
