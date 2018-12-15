@@ -29,7 +29,7 @@ pick.wkday <- function(selday,start,end) {
 }
 
 # valueDates are the dates at which the portfolio will be valued. 
-valueDates <- pick.wkday(5, as.Date("2018-01-01"), as.Date("2018-03-31"))
+valueDates <- pick.wkday(5, as.Date("2019-01-01"), as.Date("2019-03-31"))
 
 # This is priceTab.R
 pricetab <- data.frame(Date = as.Date(valueDates), Equity = rep(NA, length(valueDates)), 

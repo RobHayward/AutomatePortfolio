@@ -1,5 +1,5 @@
 ui <- dashboardPage(
-  dashboardHeader(title = "Select"), 
+  dashboardHeader(title = "EC381 Investment Dashboard"), 
   # sidebar content
   dashboardSidebar(
     sidebarMenu(
@@ -79,10 +79,20 @@ p("The base portfolio is based on a 60:40 equity to bond weighting.")
 # third tab content
 tabItem(tabName = "news", 
         h2("News information and suggestions"),
-        p(tags$strong('Main'),
+        p(tags$strong('Main Point'),
 "The softening of trade friction at the weekend meeting in Argentian has
-          provided the backdrop to a more stable tone in world equity markets")
-               )
+          provided the backdrop to a more stable tone in world equity markets"),
+               
+tags$ul(
+  tags$li('The first thing this week'),
+  tags$li('The second thnig this week')
+), 
+p(tags$strong('Second point'), 
+  "The latest economic data will include the US Employment data for November.  As usual
+  the attention will be on wages for evidence that tight labour market conditions are 
+  translating into increased costs for firms."), 
+tags$img(src = '10Y.png', align = 'left', width = "500px", height = "200px")
+)
 )
 )
 )
