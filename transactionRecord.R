@@ -34,6 +34,6 @@ transactionRecord <- function(Date = Sys.Date(), student, bs, asset, volume, pri
     transactions[[student]][end + 1, 6] <<- price * volume
   }
 }
-# this is the test below. This will eventually be taken out.
-#transactionRecord("2017-08-08", "td126", "Sell", "Equity", 60, 20)
-#transactions[["td126"]]
+# this is the test below. This works.
+#transactionRecord("2019-01-06", "Team1", "Sell", "Equity", 60, 20)
+#transactions[["Team1"]]

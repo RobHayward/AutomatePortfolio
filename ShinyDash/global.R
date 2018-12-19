@@ -1,4 +1,5 @@
-  library(shiny)
+library(shiny)
+library(googlesheets)
 library(shinythemes)
 library(shinydashboard)
 library(DT)
@@ -32,34 +33,34 @@ pick.wkday <- function(selday,start,end) {
 valueDates <- pick.wkday(5, as.Date("2019-01-01"), as.Date("2019-03-31"))
 
 # This is priceTab.R
-pricetab <- data.frame(Date = as.Date(valueDates), Equity = rep(NA, length(valueDates)), 
-                       Debt = rep(NA, length(valueDates)))
-pricetab[1, 2] <- 273.42
-pricetab[1, 3] <- 125.71
-pricetab[2, 2] <- 277.92
-pricetab[2, 3] <- 124.52
-pricetab[3, 2] <- 280.41
-pricetab[3, 3] <- 123.06
-pricetab[4, 2] <- 286.56
-pricetab[4, 3] <- 123.59
-pricetab[5, 2] <- 275.45
-pricetab[5, 3] <- 119.58
-pricetab[6, 2] <- 261.50
-pricetab[6, 3] <- 117.94
-pricetab[7, 2] <- 273.11
-pricetab[7, 3] <- 118.71
-pricetab[8, 2] <- 274.71
-pricetab[8, 3] <- 118.13
-pricetab[9, 2] <- 269.10
-pricetab[9, 3] <- 118.35
-pricetab[10, 2] <- 278.87
-pricetab[10, 3] <- 117.91
-pricetab[11, 2] <- 274.20
-pricetab[11, 3] <- 119.81
-pricetab[12, 2] <- 258.05
-pricetab[12, 3] <- 120.17
-pricetab[13, 2] <- 263.15
-pricetab[13, 3] <- 121.90
+pricetab <- data.frame(Date = as.Date(valueDates), Equity = rep(NA, length(valueDates)),  Debt = rep(NA, length(valueDates)), Gold  = rep(NA, length(valueDates)), Oil = rep(NA, length(valueDates)))
+pricetab[1, 2] <- NA
+pricetab[1, 3] <- NA
+pricetab[1, 4] <- NA
+pricetab[1, 5] <- NA
+#pricetab[2, 2] <- #pricetab[2, 3] <- 
+#pricetab[3, 2] <- 
+#pricetab[3, 3] <- 
+#pricetab[4, 2] <- 
+#pricetab[4, 3] <- 
+#pricetab[5, 2] <- 
+#pricetab[5, 3] <- 
+#pricetab[6, 2] <- 
+#pricetab[6, 3] <- 
+#pricetab[7, 2] <- 
+#pricetab[7, 3] <- 
+#pricetab[8, 2] <- 
+#pricetab[8, 3] <- 
+#pricetab[9, 2] <- 
+#pricetab[9, 3] <- 
+#pricetab[10, 2] <-
+#pricetab[10, 3] <-
+#pricetab[11, 2] <-
+#pricetab[11, 3] <-
+#pricetab[12, 2] <-
+#pricetab[12, 3] <-
+#pricetab[13, 2] <-
+#pricetab[13, 3] <-
 # portfolioValue function that will react to the student
 portfolioValue <- function(student, weeks = 13){
   portfolio[[student]][,1] <- as.Date(portfolio[[student]][,1])

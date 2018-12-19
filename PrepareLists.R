@@ -21,5 +21,5 @@ names(transactions) <- students
 #portfolio and transacitons for each student in transactions. 
 # Could now remove d1, d2 and students to tidy up. 
 # Now remove the unneeded parts
-rm(da1, da2, d1, d2, Date, BS, Asset, Volume, Price, Total, data)
+rm(d1, d2, Date, BS, Asset, Volume, Price, Total, data)
 # 
