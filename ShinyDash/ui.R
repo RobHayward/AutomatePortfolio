@@ -23,8 +23,10 @@ ui <- dashboardPage(
     box(
       title = "Select security",
       width = 4, 
-      textInput("name", "Name", ""),
-    selectInput("asset", "Asset", choice = c("SPY", "TLT"), selected = "SPY"),
+    selectInput("name", "Name", choice = c("Team1", "Team2", "Team3", "Team4"),
+                selected = "Team1"),
+    selectInput("asset", "Asset", choice = c("SPY", "TLT", "Gole", "Oil"),
+                selected = "SPY"),
     selectInput("action", "Action", choice = c("Buy", "Sell"), selected = "Buy"),
     numericInput("quantity", "Assets to buy or sell", value = 100, min = 0, max = 10e6),
     actionButton("submit", "Submit")
@@ -44,7 +46,7 @@ fluidRow(
     wellPanel(
         selectInput(inputId = "student", label = "Choose a student id:", 
                   choices = students,
-                  selected = 'nad20')
+                  selected = 'Team1')
       
 )),
     
