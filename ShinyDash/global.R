@@ -137,7 +137,7 @@ portfoliobenchmarkValue <- function(fundvalue = 1000000, equityweight = 40, debt
                      tempdf[1, 13] -1)*100
   performance2 <- ((tempdf[dim(tempdf)[1], 13] / 
                       tempdf[1, 13])^(52/weeks)-1)*100
-  mylist2 <- list(table = tempdf[,-c(2, 3, 4, 5, 12)], student = student, 
+  mylist2 <- list(table = tempdf[,-c(2, 3, 4, 5, 12)], student = NA, 
                  ReturnSeries = tempdf$'Portfolio_Return', Return =  
                    round(performance1, 2), AnnualReturn = round(performance2, 2))
   return(mylist2)} 	           
