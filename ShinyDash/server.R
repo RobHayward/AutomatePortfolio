@@ -8,11 +8,11 @@ server <- function(input, output) {
     observeEvent(input$submit, {
       # need to calculate the values in the message using current price
       # these three lines can be removed if necessary.
-      showModal(modalDialog(
-        title = "Important Message", 
-        "Buy 100 at 24.5, total cost is 400: are you sure"
+      #showModal(modalDialog(
+      #  title = "Important Message", 
+      #  "Buy 100 at 24.5, total cost is 400: are you sure"
         # https://shiny.rstudio.com/reference/shiny/1.0.1/modalDialog.html
-      ))
+      #))
       saveData(formData())
     })
 #========================================================    

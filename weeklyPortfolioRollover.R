@@ -4,7 +4,7 @@
 weeklyPortfolioRollover <- function(date = As.Date(), studentlist = activestudents){
 otherstudents <- students[!(students %in% activestudents)] 
 for(i in otherstudents){
-  portfolioRecord(as.Date("2018-03-30"), i, asset = "None", 0, 0)
+  portfolioRecord(as.Date("2019-01-11"), i, asset = "None", 0, 0)
 }
 }
 

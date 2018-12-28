@@ -6,7 +6,7 @@ library(shinydashboard)
 library(DT)
 #===================================================
 # create fields for...
-fields <- c("name", "asset", "action", "quantity")
+fields <- c("Name", "Asset", "Action", "Quantity")
 #=================================================
 # Save and load data functions
 saveData <- function(data) {
@@ -39,7 +39,11 @@ pricetab[1, 2] <- 22
 pricetab[1, 3] <- 23
 pricetab[1, 4] <- 24
 pricetab[1, 5] <- 25
-#pricetab[2, 2] <- #pricetab[2, 3] <- 
+#pricetab[2, 2] <- 25
+#pricetab[2, 3] <- 25
+#pricetab[2, 4] <- 25
+#pricetab[2, 5] <-25 
+#pricetab[2, 3] <- 
 #pricetab[3, 2] <- 
 #pricetab[3, 3] <- 
 #pricetab[4, 2] <- 
