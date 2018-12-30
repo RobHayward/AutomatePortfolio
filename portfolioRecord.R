@@ -28,8 +28,7 @@ portfolio[[student]][end, "Date"] <<- Date
  portfolio[[student]][end, "Date"] <<- Date
 }
 }
-# I was told that 'Selling equity works but buying bond does not'.  
-# Undefined column.  I think that this is okay now. 
+
 # This is the test below. 
 #portfolioRecord(Date = "2017-07-05", "nad20", "Buy", "Debt", 50, 2.5)
 #portfolio[["nad20"]]

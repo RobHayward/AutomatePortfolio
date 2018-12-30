@@ -74,9 +74,8 @@ plotOutput(outputId = "plot"),
        
       textOutput(outputId = "text1"),
       textOutput(outputId = "text2"), 
-p("The annualisation will assume that the gains for the quarter happen 4 times"),
 
-p("The base portfolio is based on a 60:40 equity to bond weighting.") 
+p(" The base portfolio assumes that the weights are 40 percent equity, 30 percent debt, 20 percent Gold and 10 percent oil.") 
 )) ,
 
 
