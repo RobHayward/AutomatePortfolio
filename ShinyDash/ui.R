@@ -87,20 +87,20 @@ tabItem(tabName = "rules",
                
 tags$ul(
   tags$li('You can make an adjustment any time before midnight on Sunday'),
-  tags$li("The transaction prie will be Friday's closing price"),
-  tags$li("There are no transactin costs or price slippage"),
+  tags$li("The transaction price will be Friday's closing price"),
+  tags$li("There are no transaction costs or price slippage"),
+  tags$li("There is no borrowing of cash or of securities to create short positions"),
   tags$li("You must make sure that you do not sell more than the one million dollars that you have been allocated"),
-  tags$li("You will receive a fine of 10 percent of you portfolio if your cash balance goes below zero"),
+  tags$li("You will receive a fine of 10 percent of you portfolio if your cash balance or any of your holdings go below zero"),
   tags$li("Make your decisions (assets and volume of trade) on the Security Selection tab"),
   tags$li("Once you have made the decision, press select and wait for your transaction to be recorded in the table.  Allow the transaction time to be completed.  There will be some delay if more than one person is selecting at the same time."),
   tags$li('If the transacton is not recorded in the Security Selection table or you make a mistake, email me pn rh49@brighton.ac.uk so that I can correct')
 ), 
 p(tags$strong('Monitoring the portfolio'), 
-  "The portfolio perfomance cnd a record of you transacctions an be monitored on the Portfolio tab.  Please selection your name.  It may also be useful for you to keep your own record of performance so that you can create your own calculations and graphs for the report."), 
+  "The portfolio perfomance and a record of you transacctions an be monitored on the Portfolio tab.  Please selection your name.  It may also be useful for you to keep your own record of performance so that you can create your own calculations and graphs for the report."), 
 p(tags$strong('News and Information'), 
-  "You can get information from Yahoo Finance, Thomson-Reuters Eikon and the Bloomberg web site.  There are also updates from me on student central that can be accessed from the news tab to the left. You will have to be logged into to student central for this to work,"), 
-p(tags$strong("Friday's closing price is recorded in the Security Price tab"), 
-  "The portfolio perfomance cnd a record of you transacctions an be monitored on the Portfolio tab.  Please selection your name.  It may also be useful for you to keep your own record of performance so that you can create your own calculations and graphs for the report.")
+  "You can get information from Yahoo Finance, Thomson-Reuters Eikon and the Bloomberg web site.  There are also updates from me on student central that can be accessed from the news tab to the left. You will have to be logged into to student central for this to work,") 
+
 #:tags$img(src = '10Y.png', align = 'left', width = "500px", height = "200px")
 )
 )

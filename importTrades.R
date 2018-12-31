@@ -1,6 +1,6 @@
 # importTrades.R
 # This will take the data from the responses file and put it into the equivalent of the TradeRecord.R
-#library(googlesheets)
+#=========================
 files <- list.files("ShinyDash/responses", full.names = TRUE)
 data <- lapply(files, read.csv, stringsAsFactors = FALSE)
 da <- do.call(rbind, data)
@@ -20,12 +20,12 @@ otherstudents <- students[!(students %in% activestudents)]
     portfolioRecord(Date = pricetab[week, 1], student = i, asset = "Cash", 0, 0)
 }
 
-#transactions[['Team1']]
-#transactions[['Team2']]
-#transactions[['Team4']]
-#transactions[['Team3']]
-#portfolio[['Team1']]
-#portfolio[['Team2']]
-#portfolio[['Team3']]
-#portfolio[['Team4']]
+transactions[['Team1']]
+transactions[['Team2']]
+transactions[['Team4']]
+transactions[['Team3']]
+portfolio[['Team1']]
+portfolio[['Team2']]
+portfolio[['Team3']]
+portfolio[['Team4']]
 

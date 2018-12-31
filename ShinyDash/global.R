@@ -115,8 +115,8 @@ portfoliobenchmarkValue <- function(fundvalue = 1000000, equityweight = 40, debt
   return(mylist2)} 	           
 # Load data============================
 # Get the latest datafile.
-load('./backup/port2019-01-18')
-load('./backup/trans2019-01-18')
+#load('./backup/port2019-01-18')
+#load('./backup/trans2019-01-18')
 #data <- read.csv("Names.csv", stringsAsFactors = FALSE)
 students <- c("Team1", "Team2", "Team3", "Team4")
 #shinyApp(ui, server)

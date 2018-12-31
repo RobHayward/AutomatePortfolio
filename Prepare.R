@@ -23,8 +23,12 @@ names(portfolio) <- students
 names(transactions) <- students
 #str(portfolio)
 #str(transactions)
+# Now create the responses directory if it does not already exist. 
+if(dir.exists('./ShinyDash/responses' ) == FALSE) {
+  dir.create('./ShinyDash/responses')
+}
   # We should now have 2 lists with assets for each student in the 
-#portfolio and transacitons for each student in transactions. 
+#portfolio and transacitons for each student in transactions and the responses dir.
 # Could now remove d1, d2 and students to tidy up. 
 # Now remove the unneeded parts
 rm(d1, d2, Date, BS, Asset, Volume, Price, Total)

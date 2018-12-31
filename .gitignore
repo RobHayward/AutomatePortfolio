@@ -36,3 +36,5 @@ vignettes/*.pdf
 .Rproj.user
 .todo
 */rsconnect/*
+*.png
+*.jpeg
